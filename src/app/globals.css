@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Inter:wght@400;500;600;700&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Magra:wght@400;700&display=swap');
+
+/* Explicit Magra font-face definitions to ensure instant load */
+@font-face {
+  font-family: 'Magra';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/magra/v15/uK_94ruaZus72n52KjI.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Magra';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/magra/v15/uK_w4ruaZus72nbNDxcSEPuUX1ow.woff2') format('woff2');
+}
+
+:root {
+  --canvas-bg: #f2efe9;
+  --card-bg: #ebe6dd;
+  --card-white: #fafafa;
+  --brand-orange: #ff5c00;
+  --brand-orange-hover: #e05200;
+  --brand-orange-subtle: rgba(255, 92, 0, 0.08);
+  --brand-orange-border: rgba(255, 92, 0, 0.25);
+  --text-dark: #1e1e1e;
+  --text-secondary: #525252;
+  --text-muted: #787878;
+  --border-subtle: rgba(30, 30, 30, 0.08);
+  --border-light: rgba(30, 30, 30, 0.05);
+  
+  --font-display: 'Magra', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fragment Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--canvas-bg);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--canvas-bg);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+::selection {
+  background-color: rgba(255, 92, 0, 0.2);
+  color: var(--brand-orange);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Headings with Magra display font */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Section Title Pill Badges */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: rgba(30, 30, 30, 0.05);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  width: fit-content;
+}
+
+.badge-pill-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all 0.25s ease;
+}
+
+.badge-pill-orange:hover {
+  background-color: #e2dcd1;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--brand-orange);
+  box-shadow: 0 0 0 0 rgba(255, 92, 0, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 92, 0, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(255, 92, 0, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 92, 0, 0);
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--brand-orange);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(255, 92, 0, 0.25);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 92, 0, 0.35);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-dark);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.btn-dark:hover {
+  background-color: #333333;
+  transform: translateY(-1px);
+}
+
+/* Card Basics */
+.card-base {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Vertical Reel Animation for Hero */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-up {
+  animation: scrollUp 28s linear infinite;
+}
+
+.animate-scroll-up:hover {
+  animation-play-state: paused;
+}
+
+.animate-scroll-down {
+  animation: scrollDown 32s linear infinite;
+}
+
+.animate-scroll-down:hover {
+  animation-play-state: paused;
+}
+
+/* Horizontal Ticker for Platforms */
+@keyframes tickerLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tickerRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-ticker-left {
+  display: flex;
+  width: max-content;
+  animation: tickerLeft 20s linear infinite;
+}
+
+.animate-ticker-right {
+  display: flex;
+  width: max-content;
+  animation: tickerRight 22s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--canvas-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d3c8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c2bcb0;
+}
